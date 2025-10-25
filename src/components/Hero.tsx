@@ -7,12 +7,12 @@ const Hero = () => {
       <div className="container mx-auto px-6 py-24 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-8 animate-fade-in">
           <Avatar className="w-32 h-32 border-4 border-primary-foreground/20 shadow-lg">
-            <AvatarImage src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Profile" />
-            <AvatarFallback className="text-2xl font-bold bg-accent text-accent-foreground">YN</AvatarFallback>
+            <AvatarImage src="https://imgur.com/PXQfStV.jpeg" alt="Michael Sileshi Mekbib" />
+            <AvatarFallback className="text-2xl font-bold bg-accent text-accent-foreground">MS</AvatarFallback>
           </Avatar>
           <div className="text-center md:text-left">
             <h1 className="text-4xl md:text-5xl font-bold mb-3 tracking-tight">
-              Your Name
+              Michael Sileshi Mekbib
             </h1>
             <p className="text-xl md:text-2xl text-accent font-semibold mb-4">
               Public Health Informatics Specialist & Digital Health Leader

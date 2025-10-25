@@ -26,51 +26,34 @@ const Navigation = () => {
     }
   };
 
+  const navItems = [
+    { id: 'about', label: 'About' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'skills', label: 'Technical Skills' },
+    { id: 'publications', label: 'Publications' },
+    { id: 'membership', label: 'Membership' },
+    { id: 'contact', label: 'Contact' }
+  ];
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? "bg-foreground shadow-md" : "bg-foreground/95"
       }`}
     >
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-center h-16">
-          <div className="flex space-x-8">
+      <div className="container mx-auto px-6 py-3">
+        <div className="flex flex-wrap justify-center gap-2 md:gap-4">
+          {navItems.map((item) => (
             <Button
+              key={item.id}
               variant="ghost"
-              onClick={() => scrollToSection("about")}
-              className="text-background hover:text-accent hover:bg-transparent transition-colors"
+              className="text-background hover:text-accent transition-colors text-xs md:text-sm px-2 md:px-4"
+              onClick={() => scrollToSection(item.id)}
             >
-              About
+              {item.label}
             </Button>
-            <Button
-              variant="ghost"
-              onClick={() => scrollToSection("experience")}
-              className="text-background hover:text-accent hover:bg-transparent transition-colors"
-            >
-              Experience
-            </Button>
-            <Button
-              variant="ghost"
-              onClick={() => scrollToSection("projects")}
-              className="text-background hover:text-accent hover:bg-transparent transition-colors"
-            >
-              Projects
-            </Button>
-            <Button
-              variant="ghost"
-              onClick={() => scrollToSection("skills")}
-              className="text-background hover:text-accent hover:bg-transparent transition-colors"
-            >
-              Skills
-            </Button>
-            <Button
-              variant="ghost"
-              onClick={() => scrollToSection("contact")}
-              className="text-background hover:text-accent hover:bg-transparent transition-colors"
-            >
-              Contact
-            </Button>
-          </div>
+          ))}
         </div>
       </div>
     </nav>

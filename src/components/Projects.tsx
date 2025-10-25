@@ -1,68 +1,137 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const projects = [
   {
-    title: "National Health Information System",
-    description: "Led the design and deployment of integrated health information systems across multiple African countries, improving data flow from facility to national level.",
-    tags: ["DHIS2", "Data Integration", "System Architecture"],
+    title: "PHEOC Strengthening in Africa",
+    description: "The PHEOC strengthening project supported 31 African Union Member States by enhancing their Public Health Emergency Operations Centers' capacity in information systems and data analysis through training, digital equipment, and project management.",
+    links: [
+      { label: "PHEOC Infrastructure", url: "https://app.powerbi.com/view?r=eyJrIjoiZWE1ZDY3MzctZmMyOS00ODQ4LWFkMWMtOTk3NzgwMzk2YjgxIiwidCI6ImFjZTVjNjQ1LTNlYzctNGM4ZS1iMTJlLTA3NzIyMTUwNWRmNSJ9" },
+      { label: "MPox Outbreak RR", url: "https://app.powerbi.com/view?r=eyJrIjoiNjFhZTZhMGUtNzkwMC00YjNlLWE3MDAtZThlMzExOTc0YWVkIiwidCI6ImFjZTVjNjQ1LTNlYzctNGM4ZS1iMTJlLTA3NzIyMTUwNWRmNSJ9" },
+      { label: "PHEOC Project", url: "https://app.powerbi.com/view?r=eyJrIjoiYmEyYTI2NzctYmYyMS00Mjk0LTgxOTEtNTcxM2U5MWE0MDkwIiwidCI6ImFjZTVjNjQ1LTNlYzctNGM4ZS1iMTJlLTA3NzIyMTUwNWRmNSJ9" }
+    ]
   },
   {
-    title: "COVID-19 Data Visualization Platform",
-    description: "Developed real-time dashboards for pandemic response coordination, enabling evidence-based decision making for public health officials.",
-    tags: ["Data Visualization", "Emergency Response", "Analytics"],
+    title: "Africa CDC Data Center",
+    description: "State of the art Continental Data Center, established in 2024 with support in project management, certification, HR development, infrastructure setup, and resource mobilization",
+    links: []
   },
   {
-    title: "Immunization Information System",
-    description: "Implemented comprehensive IIS to track vaccination coverage and support immunization program management across regions.",
-    tags: ["IIS", "Public Health", "Data Modernization"],
+    title: "Knowledge Hub Portal",
+    description: "Continental knowledge sharing portal, designed to strengthen research, evidence based decision making and information sharing across Africa.",
+    links: [
+      { label: "Check the Khub", url: "https://play.google.com/store/apps/details?id=com.africacdc.khubmobile&hl=en&pli=1" }
+    ]
   },
   {
-    title: "Health Data Governance Framework",
-    description: "Established data quality standards and governance structures for national health programs, ensuring data reliability and security.",
-    tags: ["Data Governance", "Quality Assurance", "Policy Development"],
+    title: "ePHEM System Deployment",
+    description: "Deployment of Continental public health emergency management portal to faciliatate outbreak detection and response efforts in Africa",
+    links: []
   },
   {
-    title: "Digital Health Training Program",
-    description: "Created capacity building initiatives for health informatics professionals, training over 200 practitioners in digital health systems.",
-    tags: ["Capacity Building", "Training", "Knowledge Transfer"],
+    title: "Event-Based Surveillance Reporting",
+    description: "An electronic system developed to real-time event-based surveillance data for improved outbreak detection in Africa",
+    links: []
   },
   {
-    title: "Mobile Health Surveillance System",
-    description: "Designed mobile-based disease surveillance tools for remote health facilities, enabling real-time reporting and outbreak detection.",
-    tags: ["mHealth", "Surveillance", "Mobile Technology"],
+    title: "Community Health Information System (CHIS)",
+    description: "System piloted and deployed to collect information from the grassroot level to facilitate evidence based decision making covering the 85% of the population",
+    links: [
+      { label: "eCHIS", url: "https://moh.gov.et/en/projects-3-col/echis?language_content_entity=en" }
+    ]
   },
+  {
+    title: "DHIS2",
+    description: "DHIS2 was piloted, evaluated, and adopted as Ethiopia's national Health Information System (HIS). It improves data collection, management, and reporting across all levels of the health system, supporting evidence-based decision-making and strengthening national health monitoring.",
+    links: [
+      { label: "DHIS2 system", url: "https://dhis.moh.gov.et/dhis-web-commons/security/login.action" }
+    ]
+  },
+  {
+    title: "Africa CDC MIS Division Establishment",
+    description: "As part of the organizational restructuring and system strengthening, supported establishment of Management Information system (later upgraded to digital health) division for Africa CDC, enabling digital governance, reporting, and analytics.",
+    links: []
+  },
+  {
+    title: "Chronic Disease Epidemiology Dashboard, USA",
+    description: "Interactive dashboard exploring chronic disease distribution across the United States developed using R Shiny",
+    links: [
+      { label: "View Dashboard", url: "https://mikiethio.shinyapps.io/chronic-dashboard/" }
+    ]
+  },
+  {
+    title: "Immunization eLearning Platform",
+    description: "An online, self-paced learning platform was developed and deployed in Kenya in collaboration with the Immunization Academy. The platform enabled over 3,000 managers to independently enhance their skills in immunization program monitoring and evidence-based decision-making",
+    links: [
+      { label: "A self-paced eLearning platform", url: "https://watch.immunizationacademy.com/en/videos/823/" }
+    ]
+  },
+  {
+    title: "Nationwide Immunization and VPD Surveillance Monitoring System Digitization",
+    description: "The system consolidated multiple fragmented paper-based monitoring tools into a single, harmonized platform, creating an electronic system integrated with the national health information system. This approach leverages existing technology and promotes interoperability, ensuring more efficient use of resources.",
+    links: [
+      { label: "KHIS", url: "https://hiskenya.org/dhis-web-commons/security/login.action/" }
+    ]
+  },
+  {
+    title: "eIDSR Development and Implementation",
+    description: "The electronic system enabled sub-counties nationwide to submit integrated disease surveillance reports on weekly notifiable diseases promptly and directly within the national health information system.",
+    links: [
+      { label: "Weekly eIDSR Reporting System - Kenya", url: "https://hiskenya.org/dhis-web-commons/security/login.action" }
+    ]
+  }
 ];
 
 const Projects = () => {
   return (
     <section id="projects" className="py-20 bg-background">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 border-l-4 border-primary pl-6 text-foreground">
-          Key Projects
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 border-l-4 border-primary pl-6 text-foreground">
+          Project Leadership & Support
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Swiper
+          modules={[Navigation, Pagination]}
+          spaceBetween={20}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 }
+          }}
+          className="pb-12"
+        >
           {projects.map((project, index) => (
-            <Card
-              key={index}
-              className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-border"
-            >
-              <CardContent className="p-6">
-                <h3 className="font-bold text-xl mb-3 text-foreground">{project.title}</h3>
-                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, tagIndex) => (
-                    <Badge key={tagIndex} variant="secondary" className="bg-primary/10 text-primary">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            <SwiperSlide key={index}>
+              <Card className="h-full hover:shadow-lg transition-all duration-300">
+                <CardContent className="p-6 flex flex-col h-full min-h-[280px]">
+                  <h3 className="text-xl font-bold text-accent mb-3">{project.title}</h3>
+                  <p className="text-muted-foreground text-sm mb-4 flex-grow">{project.description}</p>
+                  {project.links.length > 0 && (
+                    <div className="flex flex-col gap-2 mt-auto">
+                      {project.links.map((link, linkIndex) => (
+                        <a
+                          key={linkIndex}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:underline text-sm"
+                        >
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
     </section>
   );

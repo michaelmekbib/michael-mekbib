@@ -8,16 +8,10 @@ const About = () => {
           </h2>
           <div className="space-y-4 text-muted-foreground leading-relaxed animate-fade-in">
             <p>
-              I am a <strong className="text-foreground">Health Informatics and Public Health Specialist</strong> with over 13 years of experience leading digital health transformation across Africa. I hold a <strong className="text-foreground">Master's degree in Health Informatics</strong> and have a proven track record in the health sector.
+              Michael Sileshi Mekbib is a <strong className="text-foreground">Health Informatics and Public Health Specialist</strong> with over 13 years of experience leading digital health transformation across Africa. He holds a <strong className="text-foreground">Master's degree in Health Informatics</strong> and has a proven track record in the health sector. Michael has worked with WHO, AFENET, TBI, and Africa CDC to design and deploy national health information systems, data visualization tools, and supportive supervision platforms.
             </p>
             <p>
-              I have worked with WHO, AFENET, TBI, and Africa CDC to design and deploy national health information systems, data visualization tools, and supportive supervision platforms.
-            </p>
-            <p>
-              I have <strong className="text-foreground">led continental initiatives</strong> in public health programs and emergency response, coordinating large-scale projects that strengthen public health data quality, governance, and evidence-based decision-making across multiple African nations.
-            </p>
-            <p>
-              I am a <strong className="text-foreground">specialist in digital health systems architecture and analytics</strong>, advancing global health security through innovative digital solutions and data-driven approaches to public health program management.
+              He has <strong className="text-foreground">led continental initiatives</strong> in public health programs and emergency response, coordinating large-scale projects that strengthen public health data quality, governance, and evidence-based decision-making across multiple African nations. Michael is a <strong className="text-foreground">specialist in digital health systems architecture and analytics</strong>, advancing global health security through innovative digital solutions and data-driven approaches to public health program management. He has contributed in diverse roles at regional, national, and international levels, consistently demonstrating agility, dedication, and professionalism across both technical and managerial responsibilities.
             </p>
           </div>
         </div>

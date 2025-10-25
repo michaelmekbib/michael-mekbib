@@ -1,74 +1,63 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Linkedin, Github, Phone } from "lucide-react";
+import { Mail, Linkedin, Github, User, GraduationCap } from "lucide-react";
 
 const contactMethods = [
   {
     icon: Mail,
     label: "Email",
-    value: "your.email@example.com",
-    link: "mailto:your.email@example.com",
+    value: "mikiethio@gmail.com",
+    link: "mailto:mikiethio@gmail.com"
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
-    value: "Connect on LinkedIn",
-    link: "https://linkedin.com/in/yourprofile",
+    value: "linkedin.com/in/michaelsileshi",
+    link: "https://linkedin.com/in/michaelsileshi"
   },
   {
     icon: Github,
     label: "GitHub",
-    value: "View GitHub Profile",
-    link: "https://github.com/yourprofile",
+    value: "github.com/mikiethio-git",
+    link: "https://github.com/mikiethio-git"
   },
   {
-    icon: Phone,
-    label: "Phone",
-    value: "+1 (555) 123-4567",
-    link: "tel:+15551234567",
+    icon: GraduationCap,
+    label: "Google Scholar",
+    value: "Michael Sileshi",
+    link: "https://scholar.google.com/citations?hl=en&user=_cS6w-MAAAAJ"
   },
+  {
+    icon: User,
+    label: "Africa CDC Profile",
+    value: "africacdc.org/people/michael-sileshi",
+    link: "https://africacdc.org/people/michael-sileshi/"
+  }
 ];
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-20 bg-background">
+    <section id="contact" className="py-20 bg-secondary">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 border-l-4 border-primary pl-6 text-foreground">
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 border-l-4 border-primary pl-6 text-foreground">
           Get In Touch
         </h2>
-        <div className="max-w-3xl mx-auto">
-          <p className="text-muted-foreground text-center mb-12 text-lg">
-            I'm always interested in discussing new opportunities, collaborations, or how we can
-            work together to advance digital health transformation.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {contactMethods.map((method, index) => (
-              <Card
+        <div className="max-w-4xl mx-auto space-y-4 animate-fade-in">
+          {contactMethods.map((method, index) => {
+            const Icon = method.icon;
+            return (
+              <a
                 key={index}
-                className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-border cursor-pointer"
-                onClick={() => window.open(method.link, "_blank")}
+                href={method.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 p-4 rounded-lg hover:bg-background transition-all duration-300 hover:translate-x-2 group"
               >
-                <CardContent className="p-6 flex items-center gap-4">
-                  <div className="bg-primary/10 p-3 rounded-lg">
-                    <method.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground">{method.label}</p>
-                    <p className="text-sm text-muted-foreground">{method.value}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <Button
-              size="lg"
-              onClick={() => window.open("mailto:your.email@example.com", "_blank")}
-              className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8"
-            >
-              Send Message
-            </Button>
-          </div>
+                <Icon className="w-5 h-5 text-primary flex-shrink-0 group-hover:scale-110 transition-transform" />
+                <span className="text-foreground font-medium group-hover:text-primary transition-colors">
+                  {method.value}
+                </span>
+              </a>
+            );
+          })}
         </div>
       </div>
     </section>
