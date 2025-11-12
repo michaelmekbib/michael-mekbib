@@ -31,9 +31,9 @@ const certificates = [
 
 const Certificates = () => {
   return (
-    <section id="certificates" className="py-20 bg-secondary/20">
+    <section id="certificates" className="py-20 bg-gradient-to-br from-secondary/30 to-accent/5">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold mb-8 border-l-4 border-primary pl-6 text-foreground">
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 border-l-4 border-primary pl-6 text-foreground animate-slide-in">
           Certificates & Recognitions
         </h2>
         <Swiper
@@ -55,11 +55,14 @@ const Certificates = () => {
         >
           {certificates.map((cert, index) => (
             <SwiperSlide key={index}>
-              <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <Card className="h-full hover:shadow-2xl hover:shadow-accent/20 transition-all duration-500 hover:-translate-y-3 bg-gradient-to-br from-card to-card/80 border-2 border-transparent hover:border-accent/30 group">
                 <CardContent className="p-6 flex flex-col items-center text-center h-full min-h-[240px]">
-                  <Award className="w-16 h-16 text-accent mb-4" />
-                  <h3 className="text-lg font-bold text-accent mb-3">{cert.title}</h3>
-                  <p className="text-muted-foreground text-sm">{cert.description}</p>
+                  <div className="relative mb-4">
+                    <div className="absolute inset-0 bg-accent/20 rounded-full blur-lg group-hover:blur-xl transition-all duration-300"></div>
+                    <Award className="relative w-16 h-16 text-accent group-hover:scale-125 group-hover:rotate-12 transition-all duration-300 animate-float" style={{ animationDelay: `${index * 0.2}s` }} />
+                  </div>
+                  <h3 className="text-lg font-bold text-accent mb-3 group-hover:scale-105 transition-transform duration-300">{cert.title}</h3>
+                  <p className="text-muted-foreground text-sm group-hover:text-foreground transition-colors duration-300">{cert.description}</p>
                 </CardContent>
               </Card>
             </SwiperSlide>
