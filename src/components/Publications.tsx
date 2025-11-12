@@ -38,8 +38,8 @@ const publications = [
   },
   {
     title: "Strengthening Emergency Response in Hard-to-Reach Settings Through Portable Public Health Emergency Operation Center",
-    journal: "Journal of Interventional Epidemiology and Public Health (Under review)",
-    link: ""
+    journal: "Journal of Interventional Epidemiology and Public Health",
+    link: "https://afenet-journal.org/strengthening-emergency-response-in-hard-to-reach-settings-through-mobile-public-health-emergency-operation-centre/"
   },
   {
     title: "DHIS2 Event Capture Application for Immunization Supportive Supervision: Experience from Kenya",
