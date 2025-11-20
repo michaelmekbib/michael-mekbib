@@ -3,11 +3,12 @@ import { BookOpen } from "lucide-react";
 const articlesReviewed = [
   { journal: "American Public Health Association (APHA)", count: 6 },
   { journal: "Journal of Medical Internet Research (JMIR, JMIR Formative, JMIR Aging, JMIR Public Health and Surveillance)", count: 8 },
-  { journal: "International Journal of Population Data Science", count: 5 },
+  { journal: "International Journal of Population Data Science", count: 7 },
   { journal: "Proceedings of the 11th IRC Conference on Science, Engineering and Technology (IRC-SET 2025), Singapore", count: 3 },
   { journal: "Journal of Mental Health and Digital Technologies (JMHDT)", count: 1 },
   { journal: "Journal of Interventional Epidemiology and Public Health (JIEPH)", count: 3 },
-  { journal: "Cureus Journal of Medical Science", count: 2 },
+  { journal: "Cureus Journal of Medical Science", count: 3 },
+  { journal: "BMJ Public Health", count: 1 },
   { journal: "Journal of Public Health and Epidemiology", count: 1 }
 ];
 
