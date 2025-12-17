@@ -8,6 +8,13 @@ const mediaArticles = [
     date: "December 19, 2023",
     url: "https://www.thisdaylive.com/2023/12/19/turning-health-data-into-lifesaving-decisions-michael-mekbibs-leadership-in-global-health-informatics/",
     coverImage: "https://www.thisdaylive.com/wp-content/uploads/2023/12/Michael-Mekbib.jpg"
+  },
+  {
+    title: "How Expert Michael Sileshi Mekbib's Strategy Advanced Ethiopia's Most Extensive Community-Level COVID-19 Vaccination",
+    publication: "TechBullion",
+    date: "2024",
+    url: "https://techbullion.com/how-expert-michael-sileshi-mekbibs-strategy-advanced-ethiopias-most-extensive-community-level-covid-19-vaccination/",
+    coverImage: "https://techbullion.com/wp-content/uploads/2024/01/Michael-Sileshi-Mekbib.jpg"
   }
 ];
 
