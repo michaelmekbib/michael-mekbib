@@ -15,6 +15,20 @@ const mediaArticles = [
     date: "2024",
     url: "https://techbullion.com/how-expert-michael-sileshi-mekbibs-strategy-advanced-ethiopias-most-extensive-community-level-covid-19-vaccination/",
     coverImage: "https://techbullion.com/wp-content/uploads/2024/01/Michael-Sileshi-Mekbib.jpg"
+  },
+  {
+    title: "Public Health Strategist Michael Mekbib Champions Smarter, Faster Immunization Systems Protecting U.S. Communities",
+    publication: "CoinPRWire",
+    date: "December 24, 2025",
+    url: "https://www.coinprwire.com/newsroom/public-health-strategist-michael-mekbib-champions-smarter-faster-immunization-systems-protecting-u-s-communities--18251",
+    coverImage: "https://www.coinprwire.com/assets/uploads/pr_images/23122025082922_92098_1000608273.jpg"
+  },
+  {
+    title: "Why Training in Health Informatics Is Key to Africa's Future Health",
+    publication: "New Vision",
+    date: "December 9, 2025",
+    url: "https://www.newvision.co.ug/category/blogs/why-training-in-health-informatics-is-key-to-NV_224203",
+    coverImage: "https://newvision-media.s3.amazonaws.com/cms/a97e5290-77f4-43bc-819e-305040ef92d2.jpg"
   }
 ];
 
