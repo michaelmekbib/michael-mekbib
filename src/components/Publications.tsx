@@ -48,8 +48,8 @@ const publications = [
   },
   {
     title: "Immunization Coverage Estimates Among Children Aged 12–23 Months: Experience from Slum Sub-County of Nairobi, Kenya",
-    journal: "Scientific Reports (Under peer review)",
-    link: ""
+    journal: "JIEPH",
+    link: "https://doaj.org/article/7f16b83c3f98424fa8fd2f65385a4f7a"
   }
 ];
 
