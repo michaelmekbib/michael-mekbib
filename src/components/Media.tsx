@@ -17,13 +17,6 @@ const mediaArticles = [
     coverImage: "https://techbullion.com/wp-content/uploads/2024/01/Michael-Sileshi-Mekbib.jpg"
   },
   {
-    title: "Public Health Strategist Michael Mekbib Champions Smarter, Faster Immunization Systems Protecting U.S. Communities",
-    publication: "CoinPRWire",
-    date: "December 24, 2025",
-    url: "https://www.coinprwire.com/newsroom/public-health-strategist-michael-mekbib-champions-smarter-faster-immunization-systems-protecting-u-s-communities--18251",
-    coverImage: "https://www.coinprwire.com/assets/uploads/pr_images/23122025082922_92098_1000608273.jpg"
-  },
-  {
     title: "Why Training in Health Informatics Is Key to Africa's Future Health",
     publication: "New Vision",
     date: "December 9, 2025",
