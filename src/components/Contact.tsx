@@ -16,8 +16,8 @@ const contactMethods = [
   {
     icon: Github,
     label: "GitHub",
-    value: "github.com/mikiethio-git",
-    link: "https://github.com/mikiethio-git"
+    value: "github.com/michaelmekbib",
+    link: "https://github.com/michaelmekbib"
   },
   {
     icon: GraduationCap,
