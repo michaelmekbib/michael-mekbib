@@ -5,6 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: '/michael-mekbib/', // 👈 This fixes the 404 assets pathing issue on GitHub Pages
   server: {
     host: "::",
     port: 8080,
