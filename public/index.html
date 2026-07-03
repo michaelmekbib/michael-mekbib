@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Sileshi Mekbib - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --background: hsl(0, 0%, 98%);
+            --foreground: hsl(222, 47%, 11%);
+            --card: hsl(0, 0%, 100%);
+            --primary: hsl(214, 62%, 38%);
+            --primary-foreground: hsl(0, 0%, 100%);
+            --primary-glow: hsl(214, 62%, 58%);
+            --secondary: hsl(210, 40%, 96%);
+            --muted-foreground: hsl(215, 16%, 47%);
+            --accent: hsl(38, 92%, 50%);
+            --accent-foreground: hsl(222, 47%, 11%);
+            --accent-glow: hsl(38, 92%, 70%);
+            --border: hsl(214, 32%, 91%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background-color: var(--foreground);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 12px 0;
+        }
+
+        nav .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        nav button {
+            background: transparent;
+            border: none;
+            color: var(--background);
+            cursor: pointer;
+            padding: 8px 16px;
+            font-size: 14px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        nav button:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--primary-glow));
+            overflow: hidden;
+            margin-top: 48px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80') center/cover;
+            opacity: 0.1;
+        }
+
+        .hero .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 64px 24px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 48px;
+        }
+
+        .avatar {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .avatar:hover {
+            transform: scale(1.1);
+        }
+
+        .hero-text {
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 56px);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .hero h2 {
+            font-size: clamp(20px, 3vw, 32px);
+            color: var(--accent-glow);
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: clamp(16px, 2vw, 20px);
+            opacity: 0.95;
+            max-width: 900px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Section */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 700;
+            margin-bottom: 32px;
+            border-left: 4px solid var(--primary);
+            padding-left: 24px;
+        }
+
+        /* Stats Card */
+        .stats-section {
+            padding: 48px 0;
+            position: relative;
+        }
+
+        .stats-wrapper {
+            position: relative;
+        }
+
+        .stats-glow {
+            position: absolute;
+            inset: -4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+            opacity: 0.3;
+            filter: blur(32px);
+            border-radius: 16px;
+            animation: pulse 2s infinite;
+        }
+
+        .stats-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            padding: 48px 32px;
+            transition: all 0.5s;
+        }
+
+        .stats-wrapper:hover .stats-card {
+            transform: scale(1.02) translateY(-4px);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 48px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 12px;
+            transition: transform 0.3s;
+        }
+
+        .stat-item:hover {
+            transform: scale(1.1);
+        }
+
+        .stat-icon {
+            position: relative;
+            width: 64px;
+            height: 64px;
+            padding: 16px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(44, 102, 150, 0.1), rgba(241, 158, 31, 0.1));
+        }
+
+        .stat-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .stat-value {
+            font-size: clamp(36px, 5vw, 60px);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--muted-foreground);
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 1000px;
+        }
+
+        .about-content p {
+            margin-bottom: 16px;
+            color: var(--muted-foreground);
+            line-height: 1.8;
+        }
+
+        .about-content strong {
+            color: var(--foreground);
+        }
+
+        /* Experience Section */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .experience-card {
+            background: var(--card);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-logo {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .experience-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .experience-card .role {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .experience-card p {
+            color: var(--muted-foreground);
+            font-size: 14px;
+        }
+
+        /* Projects Section */
+        .projects-carousel {
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 48px;
+        }
+
+        .projects-container {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding-bottom: 16px;
+        }
+
+        .projects-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .projects-container::-webkit-scrollbar-track {
+            background: var(--secondary);
+            border-radius: 4px;
+        }
+
+        .projects-container::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        .project-card {
+            min-width: 300px;
+            background: var(--card);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            padding: 24px;
+            scroll-snap-align: start;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card h3 {
+            font-size: 20px;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: var(--muted-foreground);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .project-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .project-links a {
+            color: var(--primary);
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .skill-card {
+            background: var(--card);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            padding: 24px;
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-card h3 {
+            font-size: 18px;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .skill-item {
+            margin-bottom: 16px;
+        }
+
+        .skill-name {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background: var(--secondary);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 5px;
+            transition: width 1s;
+        }
+
+        /* Publications & Articles */
+        .list-item {
+            display: flex;
+            gap: 12px;
+            padding: 16px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .list-item:hover {
+            background: rgba(44, 102, 150, 0.05);
+            transform: translateX(8px);
+        }
+
+        .list-item svg {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            color: var(--primary);
+            margin-top: 4px;
+        }
+
+        .list-item-content {
+            flex: 1;
+        }
+
+        .list-item-title {
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .list-item-subtitle {
+            font-size: 14px;
+            color: var(--muted-foreground);
+            font-style: italic;
+        }
+
+        .list-item a {
+            color: var(--primary);
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .list-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Section */
+        .contact-list {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--foreground);
+            color: var(--background);
+            padding: 32px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        footer .subtitle {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        /* Backgrounds */
+        .bg-secondary {
+            background: var(--secondary);
+        }
+
+        .bg-gradient {
+            background: linear-gradient(to bottom, var(--background), rgba(210, 235, 248, 0.3));
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .hero-content {
+                flex-direction: row;
+            }
+
+            .hero-text {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <button onclick="scrollToSection('about')">About</button>
+            <button onclick="scrollToSection('experience')">Experience</button>
+            <button onclick="scrollToSection('projects')">Projects</button>
+            <button onclick="scrollToSection('skills')">Technical Skills</button>
+            <button onclick="scrollToSection('publications')">Publications</button>
+            <button onclick="scrollToSection('membership')">Membership</button>
+            <button onclick="scrollToSection('contact')">Contact</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <img src="https://imgur.com/PXQfStV.jpeg" alt="Michael Sileshi Mekbib" class="avatar">
+                <div class="hero-text">
+                    <h1>Michael Sileshi Mekbib</h1>
+                    <h2>Public Health Informatics Specialist & Digital Health Leader</h2>
+                    <p>Strategic leader in public health analytics supporting data flow from facility to global reporting through interconnected systems and turning raw, complex datasets into life-saving intelligence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-wrapper">
+                <div class="stats-glow"></div>
+                <div class="stats-card">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <rect width="18" height="18" x="3" y="4" rx="2"/>
+                                    <line x1="16" x2="16" y1="2" y2="6"/>
+                                    <line x1="8" x2="8" y1="2" y2="6"/>
+                                    <line x1="3" x2="21" y1="10" y2="10"/>
+                                </svg>
+                            </div>
+                            <p class="stat-value"><span class="count" data-value="13">0</span>+</p>
+                            <p class="stat-label">Years of Experience</p>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="2" x2="22" y1="12" y2="12"/>
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                                </svg>
+                            </div>
+                            <p class="stat-value"><span class="count" data-value="30">0</span>+</p>
+                            <p class="stat-label">Countries Supported</p>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/>
+                                    <path d="M17 18h1M12 18h1M7 18h1"/>
+                                </svg>
+                            </div>
+                            <p class="stat-value"><span class="count" data-value="20">0</span>+</p>
+                            <p class="stat-label">Projects Completed</p>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                </svg>
+                            </div>
+                            <p class="stat-value"><span class="count" data-value="10">0</span>+</p>
+                            <p class="stat-label">Publications</p>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
+                                </svg>
+                            </div>
+                            <p class="stat-value"><span class="count" data-value="30">0</span>+</p>
+                            <p class="stat-label">Articles Reviewed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content fade-in">
+                <p>
+                    Michael Sileshi Mekbib is a <strong>Health Informatics and Public Health Specialist</strong> with over 13 years of experience leading digital health transformation across Africa. He holds a <strong>Master's degree in Health Informatics</strong> and has a proven track record in the health sector. Michael has worked with WHO, AFENET, TBI, and Africa CDC to design and deploy national health information systems, data visualization tools, and supportive supervision platforms.
+                </p>
+                <p>
+                    He has <strong>led continental initiatives</strong> in public health programs and emergency response, coordinating large-scale projects that strengthen public health data quality, governance, and evidence-based decision-making across multiple African nations. Michael is a <strong>specialist in digital health systems architecture and analytics</strong>, advancing global health security through innovative digital solutions and data-driven approaches to public health program management. He has contributed in diverse roles at regional, national, and international levels, consistently demonstrating agility, dedication, and professionalism across both technical and managerial responsibilities.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="bg-secondary">
+        <div class="container">
+            <h2 class="section-title">Organizations I've Worked With</h2>
+            <div class="experience-grid fade-in">
+                <div class="experience-card">
+                    <a href="https://www.cdc.gov/" target="_blank">
+                        <img src="https://imgur.com/pLf4ebL.jpeg" alt="US CDC" class="experience-logo">
+                    </a>
+                    <h3>US Centers for Disease Control and Prevention (US CDC)</h3>
+                    <p class="role">Public Health Informatics Fellow</p>
+                    <p>Support Immunization Information System (IIS) and Informatics and data modernization initiatives.</p>
+                </div>
+                <div class="experience-card">
+                    <a href="https://africacdc.org/" target="_blank">
+                        <img src="https://imgur.com/XxLc5je.jpeg" alt="Africa CDC" class="experience-logo">
+                    </a>
+                    <h3>Africa Centres for Disease Control and Prevention (Africa CDC)</h3>
+                    <p class="role">Technical Officer - Digital Systems</p>
+                    <p>Led the Africa CDC continental digital health agenda: PHEOC digitization, Knowledge Hub, data modernization, and digital health system strengthening.</p>
+                </div>
+                <div class="experience-card">
+                    <a href="https://www.institute.global/" target="_blank">
+                        <img src="https://i.imgur.com/2H8HWEg.jpeg" alt="TBI" class="experience-logo">
+                    </a>
+                    <h3>Tony Blair Institute for Global Change (TBI)</h3>
+                    <p class="role">Vaccine Delivery Advisor - M&E</p>
+                    <p>COVID-19 vaccination and immunization system strengthening through the use of information technology in Ethiopia.</p>
+                </div>
+                <div class="experience-card">
+                    <a href="https://afenet.net/" target="_blank">
+                        <img src="https://imgur.com/C8Kv1tU.jpeg" alt="AFENET" class="experience-logo">
+                    </a>
+                    <h3>Africa Field Epidemiology Network (AFENET)</h3>
+                    <p class="role">Country Coordinator - Immunization and VPD Surveillance Data Modernization Project</p>
+                    <p>Coordinated Kenya DQIP initiatives, digitization of VPD surveillance and immunization data systems, and development of an eLearning platform.</p>
+                </div>
+                <div class="experience-card">
+                    <a href="https://www.who.int/" target="_blank">
+                        <img src="https://imgur.com/CCLcSd7.jpeg" alt="WHO" class="experience-logo">
+                    </a>
+                    <h3>World Health Organization (WHO)</h3>
+                    <p class="role">Immunization and VPD Surveillance Data Specialist</p>
+                    <p>Supported Global Polio Eradication Initiative, developed continental VPD surveillance and immunization performance monitoring tools, and improved data quality.</p>
+                </div>
+                <div class="experience-card">
+                    <a href="https://moh.gov.et/" target="_blank">
+                        <img src="https://imgur.com/SORtVER.jpeg" alt="MOH Ethiopia" class="experience-logo">
+                    </a>
+                    <h3>Ministry of Health Ethiopia</h3>
+                    <p class="role">HIS and M&E Coordinator</p>
+                    <p>Coordinated nationwide piloting and deployment of DHIS2, CHIS, HMIS, information revolution initiatives, and performance monitoring systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Project Leadership & Support</h2>
+            <div class="projects-carousel">
+                <div class="projects-container" id="projects-container">
+                    <!-- Projects will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="bg-secondary">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <p style="text-align: center; color: var(--muted-foreground); margin-bottom: 32px;">
+                Public Health Data Science • Health Informatics • Data Analytics & System Implementation
+            </p>
+            <div class="skills-grid fade-in" id="skills-container">
+                <!-- Skills will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications">
+        <div class="container">
+            <h2 class="section-title">Publications and Conference Presentations</h2>
+            <div id="publications-container">
+                <!-- Publications will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Section -->
+    <section id="membership" class="bg-secondary">
+        <div class="container">
+            <h2 class="section-title">Membership</h2>
+            <div id="membership-container">
+                <!-- Memberships will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Reviewed Section -->
+    <section id="articles-reviewed" class="bg-gradient">
+        <div class="container">
+            <h2 class="section-title">Articles Reviewed</h2>
+            <div id="articles-container">
+                <!-- Articles will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-secondary">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-list fade-in">
+                <div class="list-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <rect width="20" height="16" x="2" y="4" rx="2"/>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                    </svg>
+                    <a href="mailto:mikiethio@gmail.com" style="color: var(--foreground); text-decoration: none; font-weight: 500;">
+                        mikiethio@gmail.com
+                    </a>
+                </div>
+                <div class="list-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                        <rect width="4" height="12" x="2" y="9"/>
+                        <circle cx="4" cy="4" r="2"/>
+                    </svg>
+                    <a href="https://linkedin.com/in/michaelsileshi" target="_blank" style="color: var(--foreground); text-decoration: none; font-weight: 500;">
+                        linkedin.com/in/michaelsileshi
+                    </a>
+                </div>
+                <div class="list-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                        <path d="M9 18c-4.51 2-5-2-7-2"/>
+                    </svg>
+                    <a href="https://github.com/mikiethio-git" target="_blank" style="color: var(--foreground); text-decoration: none; font-weight: 500;">
+                        github.com/mikiethio-git
+                    </a>
+                </div>
+                <div class="list-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                    </svg>
+                    <a href="https://scholar.google.com/citations?hl=en&user=_cS6w-MAAAAJ" target="_blank" style="color: var(--foreground); text-decoration: none; font-weight: 500;">
+                        Michael Sileshi - Google Scholar
+                    </a>
+                </div>
+                <div class="list-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <a href="https://africacdc.org/people/michael-sileshi/" target="_blank" style="color: var(--foreground); text-decoration: none; font-weight: 500;">
+                        africacdc.org/people/michael-sileshi
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Michael Sileshi Mekbib. All rights reserved.</p>
+            <p class="subtitle">Built with passion for advancing global health through digital innovation</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                const offset = 80;
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - offset;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Animated counter
+        function animateCounter() {
+            const counters = document.querySelectorAll('.count');
+            const duration = 2000;
+            const steps = 60;
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-value'));
+                const increment = target / steps;
+                let current = 0;
+                let step = 0;
+                
+                const timer = setInterval(() => {
+                    step++;
+                    current = Math.min(Math.ceil(increment * step), target);
+                    counter.textContent = current;
+                    
+                    if (step >= steps) {
+                        clearInterval(timer);
+                    }
+                }, duration / steps);
+            });
+        }
+
+        // Intersection Observer for stats animation
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Projects data
+        const projects = [
+            {
+                title: "PHEOC Strengthening in Africa",
+                description: "The PHEOC strengthening project supported 31 African Union Member States by enhancing their Public Health Emergency Operations Centers' capacity in information systems and data analysis through training, digital equipment, and project management.",
+                links: [
+                    { label: "PHEOC Infrastructure", url: "https://app.powerbi.com/view?r=eyJrIjoiZWE1ZDY3MzctZmMyOS00ODQ4LWFkMWMtOTk3NzgwMzk2YjgxIiwidCI6ImFjZTVjNjQ1LTNlYzctNGM4ZS1iMTJlLTA3NzIyMTUwNWRmNSJ9" },
+                    { label: "MPox Outbreak RR", url: "https://app.powerbi.com/view?r=eyJrIjoiNjFhZTZhMGUtNzkwMC00YjNlLWE3MDAtZThlMzExOTc0YWVkIiwidCI6ImFjZTVjNjQ1LTNlYzctNGM4ZS1iMTJlLTA3NzIyMTUwNWRmNSJ9" }
+                ]
+            },
+            {
+                title: "Africa CDC Data Center",
+                description: "State of the art Continental Data Center, established in 2024 with support in project management, certification, HR development, infrastructure setup, and resource mobilization",
+                links: []
+            },
+            {
+                title: "Knowledge Hub Portal",
+                description: "Continental knowledge sharing portal, designed to strengthen research, evidence based decision making and information sharing across Africa.",
+                links: [{ label: "Check the Khub", url: "https://play.google.com/store/apps/details?id=com.africacdc.khubmobile&hl=en&pli=1" }]
+            },
+            {
+                title: "Community Health Information System (CHIS)",
+                description: "System piloted and deployed to collect information from the grassroot level to facilitate evidence based decision making covering the 85% of the population",
+                links: [{ label: "eCHIS", url: "https://moh.gov.et/en/projects-3-col/echis?language_content_entity=en" }]
+            },
+            {
+                title: "DHIS2",
+                description: "DHIS2 was piloted, evaluated, and adopted as Ethiopia's national Health Information System (HIS).",
+                links: [{ label: "DHIS2 system", url: "https://dhis.moh.gov.et/dhis-web-commons/security/login.action" }]
+            },
+            {
+                title: "Immunization eLearning Platform",
+                description: "An online, self-paced learning platform was developed and deployed in Kenya in collaboration with the Immunization Academy.",
+                links: [{ label: "A self-paced eLearning platform", url: "https://watch.immunizationacademy.com/en/videos/823/" }]
+            }
+        ];
+
+        // Render projects
+        const projectsContainer = document.getElementById('projects-container');
+        projects.forEach(project => {
+            const card = document.createElement('div');
+            card.className = 'project-card';
+            card.innerHTML = `
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
+                ${project.links.length > 0 ? `
+                    <div class="project-links">
+                        ${project.links.map(link => `<a href="${link.url}" target="_blank">${link.label}</a>`).join('')}
+                    </div>
+                ` : ''}
+            `;
+            projectsContainer.appendChild(card);
+        });
+
+        // Skills data
+        const skillCategories = [
+            {
+                category: "Programming & Data Engineering",
+                skills: [
+                    { name: "Python (pandas, NumPy, PySpark)", level: 95 },
+                    { name: "R (tidyverse, caret, ggplot2)", level: 88 },
+                    { name: "SQL (T-SQL, PostgreSQL, Snowflake)", level: 92 },
+                    { name: "Data Pipelines & APIs", level: 90 },
+                    { name: "Data Visualization (Power BI, Tableau)", level: 99 }
+                ]
+            },
+            {
+                category: "Statistical Modeling & Machine Learning",
+                skills: [
+                    { name: "Classical Statistics", level: 91 },
+                    { name: "Predictive Modeling", level: 93 },
+                    { name: "Time-Series & Physiologic Signals", level: 90 },
+                    { name: "Biostatistics", level: 88 },
+                    { name: "Explainability & Model Evaluation", level: 84 }
+                ]
+            },
+            {
+                category: "Healthcare & Clinical Informatics",
+                skills: [
+                    { name: "Clinical Data Standards (HL7, ICD-10, FHIR)", level: 86 },
+                    { name: "EHR & Clinical Analytics", level: 91 },
+                    { name: "Public Health Informatics", level: 89 },
+                    { name: "Data Governance & Quality", level: 88 }
+                ]
+            }
+        ];
+
+        // Render skills
+        const skillsContainer = document.getElementById('skills-container');
+        skillCategories.forEach(category => {
+            const card = document.createElement('div');
+            card.className = 'skill-card';
+            card.innerHTML = `
+                <h3>${category.category}</h3>
+                ${category.skills.map(skill => `
+                    <div class="skill-item">
+                        <div class="skill-name">${skill.name}</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: ${skill.level}%"></div>
+                        </div>
+                    </div>
+                `).join('')}
+            `;
+            skillsContainer.appendChild(card);
+        });
+
+        // Publications data
+        const publications = [
+            {
+                title: "A pilot study on district health information software 2: challenges and lessons learned in a developing country",
+                journal: "International Research Journal of Engineering and Technology (IRJET), 2016",
+                link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_cS6w-MAAAAJ&citation_for_view=_cS6w-MAAAAJ:u5HHmVD_uO8C"
+            },
+            {
+                title: "COVID-19 Vaccination Data Management and Visualization Systems for Improved Decision-Making",
+                journal: "PLOS Digital Health, 2025",
+                link: "https://www.medrxiv.org/content/10.1101/2025.02.14.25322288v1"
+            },
+            {
+                title: "Strengthening Emergency Response in Hard-to-Reach Settings Through Portable Public Health Emergency Operation Center",
+                journal: "Journal of Interventional Epidemiology and Public Health",
+                link: "https://afenet-journal.org/strengthening-emergency-response-in-hard-to-reach-settings-through-mobile-public-health-emergency-operation-centre/"
+            },
+            {
+                title: "DHIS2 Event Capture Application for Immunization Supportive Supervision: Experience from Kenya",
+                journal: "BMC Medical Informatics and Decision Making (Under peer review)",
+                link: ""
+            }
+        ];
+
+        // Render publications
+        const publicationsContainer = document.getElementById('publications-container');
+        publications.forEach(pub => {
+            const item = document.createElement('div');
+            item.className = 'list-item';
+            item.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
+                </svg>
+                <div class="list-item-content">
+                    <div class="list-item-title">${pub.title}</div>
+                    ${pub.journal ? `<div class="list-item-subtitle">${pub.journal}</div>` : ''}
+                    ${pub.link ? `<a href="${pub.link}" target="_blank">[Click to view]</a>` : ''}
+                </div>
+            `;
+            publicationsContainer.appendChild(item);
+        });
+
+        // Memberships data
+        const memberships = [
+            "Program Committee Member – The 11th IRC Conference on Science, Engineering and Technology (IRC-SET 2025)",
+            "Pitch Contest Faculty Member – Grant Success School",
+            "Member – American Medical Informatics Association (AMIA)",
+            "EPHIA – Ethiopian Public Health Informatics Association",
+            "EPHA – Ethiopian Public Health Association"
+        ];
+
+        // Render memberships
+        const membershipContainer = document.getElementById('membership-container');
+        memberships.forEach(membership => {
+            const item = document.createElement('div');
+            item.className = 'list-item';
+            item.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                <div class="list-item-content">
+                    <div class="list-item-title">${membership}</div>
+                </div>
+            `;
+            membershipContainer.appendChild(item);
+        });
+
+        // Articles reviewed data
+        const articlesReviewed = [
+            { journal: "American Public Health Association (APHA)", count: 6 },
+            { journal: "Journal of Medical Internet Research (JMIR, JMIR Formative, JMIR Aging, JMIR Public Health and Surveillance)", count: 8 },
+            { journal: "International Journal of Population Data Science", count: 5 },
+            { journal: "Cureus Journal of Medical Science", count: 2 },
+            { journal: "Journal of Public Health and Epidemiology", count: 1 }
+        ];
+
+        // Render articles reviewed
+        const articlesContainer = document.getElementById('articles-container');
+        articlesReviewed.forEach(article => {
+            const item = document.createElement('div');
+            item.className = 'list-item';
+            item.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
+                </svg>
+                <div class="list-item-content">
+                    <div class="list-item-title">${article.journal}</div>
+                    <div style="margin-top: 8px; display: inline-block; padding: 4px 12px; border-radius: 12px; background: rgba(44, 102, 150, 0.1); color: var(--primary); font-size: 14px; font-weight: 600;">
+                        ${article.count} ${article.count === 1 ? 'Article' : 'Articles'}
+                    </div>
+                </div>
+            `;
+            articlesContainer.appendChild(item);
+        });
+    </script>
+</body>
+</html>
