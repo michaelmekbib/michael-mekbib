@@ -83,6 +83,13 @@ const projects = [
     links: [
       { label: "Weekly eIDSR Reporting System - Kenya", url: "https://hiskenya.org/dhis-web-commons/security/login.action" }
     ]
+  },
+  {
+    title: "Publication Monitoring Dashboard",
+    description: "Interactive dashboard to monitor and track publication metrics, citations, and research impact across multiple platforms.",
+    links: [
+      { label: "View Dashboard", url: "https://michaelmekbib.github.io/publication-monitoring/" }
+    ]
   }
 ];
 
