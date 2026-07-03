@@ -1213,6 +1213,70 @@
             `;
             articlesContainer.appendChild(item);
         });
+
+        // Media Coverage data
+        const mediaArticles = [
+            {
+                title: "Turning Health Data into Lifesaving Decisions: Michael Mekbib's Leadership in Global Health Informatics",
+                publication: "ThisDay Live",
+                date: "December 19, 2023",
+                url: "https://www.thisdaylive.com/2023/12/19/turning-health-data-into-lifesaving-decisions-michael-mekbibs-leadership-in-global-health-informatics/",
+                coverImage: "https://www.thisdaylive.com/wp-content/uploads/2023/12/Michael-Mekbib.jpg"
+            },
+            {
+                title: "How Expert Michael Sileshi Mekbib's Strategy Advanced Ethiopia's Most Extensive Community-Level COVID-19 Vaccination",
+                publication: "TechBullion",
+                date: "2024",
+                url: "https://techbullion.com/how-expert-michael-sileshi-mekbibs-strategy-advanced-ethiopias-most-extensive-community-level-covid-19-vaccination/",
+                coverImage: "https://techbullion.com/wp-content/uploads/2024/01/Michael-Sileshi-Mekbib.jpg"
+            },
+            {
+                title: "Why Training in Health Informatics Is Key to Africa's Future Health",
+                publication: "New Vision",
+                date: "December 9, 2025",
+                url: "https://www.newvision.co.ug/category/blogs/why-training-in-health-informatics-is-key-to-NV_224203",
+                coverImage: "https://newvision-media.s3.amazonaws.com/cms/a97e5290-77f4-43bc-819e-305040ef92d2.jpg"
+            }
+        ];
+        const mediaContainer = document.getElementById('media-container');
+        mediaArticles.forEach(m => {
+            const a = document.createElement('a');
+            a.className = 'media-card';
+            a.href = m.url;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.innerHTML = `
+                <div class="media-cover"><img src="${m.coverImage}" alt="${m.title}" loading="lazy"></div>
+                <div class="media-body">
+                    <div class="media-meta">${m.publication} • ${m.date}</div>
+                    <div class="media-title">${m.title}</div>
+                </div>
+            `;
+            mediaContainer.appendChild(a);
+        });
+
+        // Certificates data
+        const certificates = [
+            { title: "Ambassador for Peace Award", description: "Recognized by the Universal Peace Federation (UPF) for outstanding contributions to global peace and leadership in digital health initiatives." },
+            { title: "Program Committee Member", description: "Served on the International Research Club (IRC) – Singapore program committee, promoting research collaboration and innovation." },
+            { title: "Peer Reviewer Recognition", description: "Reviewed 14+ manuscripts for international journals including JMIR and JIEPH, ensuring scientific rigor and quality dissemination." },
+            { title: "Digital Leadership Certificate", description: "Certified in Digital Transformation Leadership for Health Systems, demonstrating excellence in strategic digital health management." },
+            { title: "Advanced Data Analytics Certification", description: "Completed advanced certification in data analytics, emphasizing public health intelligence and data-driven policymaking." }
+        ];
+        const certContainer = document.getElementById('certificates-container');
+        certificates.forEach((c, i) => {
+            const card = document.createElement('div');
+            card.className = 'cert-card';
+            card.innerHTML = `
+                <svg class="cert-icon" style="animation-delay:${i * 0.2}s" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="8" r="6"/>
+                    <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+                </svg>
+                <h3>${c.title}</h3>
+                <p>${c.description}</p>
+            `;
+            certContainer.appendChild(card);
+        });
     </script>
 </body>
 </html>
