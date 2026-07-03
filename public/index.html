@@ -512,6 +512,77 @@
             background: linear-gradient(to bottom, var(--background), rgba(210, 235, 248, 0.3));
         }
 
+        /* Media Coverage */
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+        .media-card {
+            display: block;
+            background: var(--card);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+        .media-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+        .media-cover {
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            background: var(--secondary);
+        }
+        .media-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .media-card:hover .media-cover img { transform: scale(1.08); }
+        .media-body { padding: 20px; }
+        .media-meta { font-size: 13px; color: var(--muted-foreground); font-weight: 600; margin-bottom: 8px; }
+        .media-title { font-size: 17px; font-weight: 600; line-height: 1.4; }
+        .media-card:hover .media-title { color: var(--primary); }
+
+        /* Certificates */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .cert-card {
+            background: linear-gradient(135deg, var(--card), rgba(255,255,255,0.6));
+            border-radius: 12px;
+            border: 2px solid transparent;
+            padding: 28px 20px;
+            text-align: center;
+            transition: all 0.4s;
+        }
+        .cert-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(241, 158, 31, 0.4);
+            box-shadow: 0 20px 40px rgba(241, 158, 31, 0.15);
+        }
+        .cert-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 14px;
+            color: var(--accent);
+            animation: float 3s ease-in-out infinite;
+        }
+        .cert-card h3 { color: var(--accent); font-size: 17px; margin-bottom: 10px; }
+        .cert-card p { color: var(--muted-foreground); font-size: 14px; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
         /* Animations */
         @keyframes pulse {
             0%, 100% { opacity: 0.3; }
@@ -554,7 +625,10 @@
             <button onclick="scrollToSection('projects')">Projects</button>
             <button onclick="scrollToSection('skills')">Technical Skills</button>
             <button onclick="scrollToSection('publications')">Publications</button>
+            <button onclick="scrollToSection('media')">Media</button>
             <button onclick="scrollToSection('membership')">Membership</button>
+            <button onclick="scrollToSection('articles-reviewed')">Articles Reviewed</button>
+            <button onclick="scrollToSection('certificates')">Certificates</button>
             <button onclick="scrollToSection('contact')">Contact</button>
         </div>
     </nav>
@@ -745,8 +819,18 @@
         </div>
     </section>
 
+    <!-- Media Coverage Section -->
+    <section id="media" class="bg-secondary">
+        <div class="container">
+            <h2 class="section-title">Media Coverage</h2>
+            <div class="media-grid" id="media-container">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
     <!-- Membership Section -->
-    <section id="membership" class="bg-secondary">
+    <section id="membership">
         <div class="container">
             <h2 class="section-title">Membership</h2>
             <div id="membership-container">
@@ -761,6 +845,16 @@
             <h2 class="section-title">Articles Reviewed</h2>
             <div id="articles-container">
                 <!-- Articles will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="bg-secondary">
+        <div class="container">
+            <h2 class="section-title">Certificates & Recognitions</h2>
+            <div class="cert-grid" id="certificates-container">
+                <!-- Populated by JS -->
             </div>
         </div>
     </section>
@@ -996,14 +1090,39 @@
         // Publications data
         const publications = [
             {
-                title: "A pilot study on district health information software 2: challenges and lessons learned in a developing country",
+                title: "A pilot study on district health information software 2: challenges and lessons learned in a developing country: an experience from Ethiopia",
                 journal: "International Research Journal of Engineering and Technology (IRJET), 2016",
                 link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_cS6w-MAAAAJ&citation_for_view=_cS6w-MAAAAJ:u5HHmVD_uO8C"
             },
             {
-                title: "COVID-19 Vaccination Data Management and Visualization Systems for Improved Decision-Making",
+                title: "COVID-19 Vaccination Data Management and Visualization Systems for Improved Decision-Making: Lessons Learnt from Africa CDC Saving Lives and Livelihoods Program",
                 journal: "PLOS Digital Health, 2025",
                 link: "https://www.medrxiv.org/content/10.1101/2025.02.14.25322288v1"
+            },
+            {
+                title: "Case Study of Monitoring and Evaluation System Capacity in health sector: data demand and use by health programs in Ethiopia",
+                journal: "Special bulletin, 17th annual review meeting Ministry of Health, 2015",
+                link: "https://www.researchgate.net/publication/392910852_SpecialBullitenBook1-83-85_1"
+            },
+            {
+                title: "Informatics driven participatory onboarding accelerates health workforce integration collaboration and coordination",
+                journal: "American Medical Informatics Association annual conference, 2025",
+                link: ""
+            },
+            {
+                title: "Speaker in the dhis2 annual conference 2022: Presentation on the customization of DHIS2 system for Routine immunization and VPD surveillance supportive supervision, the case of Kenya",
+                journal: "DHIS2 Annual Conference",
+                link: "https://thedhis2annualconference2022.sched.com/mikiethio"
+            },
+            {
+                title: "Africa Vaccine Program (AVP) Utilizing data management tools for vaccine delivery",
+                journal: "",
+                link: "https://institute.global/insights/public-services/africa-vaccines-programme-utilising-data-management-tools-vaccine-delivery"
+            },
+            {
+                title: "Presentation in Africa Delivery Exchange (ADX) forum: The role of technology in effective vaccine delivery",
+                journal: "Michael Mekbib, Vaccine Delivery Advisor, TBI Ethiopia",
+                link: "https://institute.global/insights/politics-and-governance/africa-delivery-exchange-adx-2022"
             },
             {
                 title: "Strengthening Emergency Response in Hard-to-Reach Settings Through Portable Public Health Emergency Operation Center",
@@ -1014,6 +1133,11 @@
                 title: "DHIS2 Event Capture Application for Immunization Supportive Supervision: Experience from Kenya",
                 journal: "BMC Medical Informatics and Decision Making (Under peer review)",
                 link: ""
+            },
+            {
+                title: "Immunization Coverage Estimates Among Children Aged 12–23 Months: Experience from Slum Sub-County of Nairobi, Kenya",
+                journal: "JIEPH",
+                link: "https://doaj.org/article/7f16b83c3f98424fa8fd2f65385a4f7a"
             }
         ];
 
@@ -1088,6 +1212,70 @@
                 </div>
             `;
             articlesContainer.appendChild(item);
+        });
+
+        // Media Coverage data
+        const mediaArticles = [
+            {
+                title: "Turning Health Data into Lifesaving Decisions: Michael Mekbib's Leadership in Global Health Informatics",
+                publication: "ThisDay Live",
+                date: "December 19, 2023",
+                url: "https://www.thisdaylive.com/2023/12/19/turning-health-data-into-lifesaving-decisions-michael-mekbibs-leadership-in-global-health-informatics/",
+                coverImage: "https://www.thisdaylive.com/wp-content/uploads/2023/12/Michael-Mekbib.jpg"
+            },
+            {
+                title: "How Expert Michael Sileshi Mekbib's Strategy Advanced Ethiopia's Most Extensive Community-Level COVID-19 Vaccination",
+                publication: "TechBullion",
+                date: "2024",
+                url: "https://techbullion.com/how-expert-michael-sileshi-mekbibs-strategy-advanced-ethiopias-most-extensive-community-level-covid-19-vaccination/",
+                coverImage: "https://techbullion.com/wp-content/uploads/2024/01/Michael-Sileshi-Mekbib.jpg"
+            },
+            {
+                title: "Why Training in Health Informatics Is Key to Africa's Future Health",
+                publication: "New Vision",
+                date: "December 9, 2025",
+                url: "https://www.newvision.co.ug/category/blogs/why-training-in-health-informatics-is-key-to-NV_224203",
+                coverImage: "https://newvision-media.s3.amazonaws.com/cms/a97e5290-77f4-43bc-819e-305040ef92d2.jpg"
+            }
+        ];
+        const mediaContainer = document.getElementById('media-container');
+        mediaArticles.forEach(m => {
+            const a = document.createElement('a');
+            a.className = 'media-card';
+            a.href = m.url;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.innerHTML = `
+                <div class="media-cover"><img src="${m.coverImage}" alt="${m.title}" loading="lazy"></div>
+                <div class="media-body">
+                    <div class="media-meta">${m.publication} • ${m.date}</div>
+                    <div class="media-title">${m.title}</div>
+                </div>
+            `;
+            mediaContainer.appendChild(a);
+        });
+
+        // Certificates data
+        const certificates = [
+            { title: "Ambassador for Peace Award", description: "Recognized by the Universal Peace Federation (UPF) for outstanding contributions to global peace and leadership in digital health initiatives." },
+            { title: "Program Committee Member", description: "Served on the International Research Club (IRC) – Singapore program committee, promoting research collaboration and innovation." },
+            { title: "Peer Reviewer Recognition", description: "Reviewed 14+ manuscripts for international journals including JMIR and JIEPH, ensuring scientific rigor and quality dissemination." },
+            { title: "Digital Leadership Certificate", description: "Certified in Digital Transformation Leadership for Health Systems, demonstrating excellence in strategic digital health management." },
+            { title: "Advanced Data Analytics Certification", description: "Completed advanced certification in data analytics, emphasizing public health intelligence and data-driven policymaking." }
+        ];
+        const certContainer = document.getElementById('certificates-container');
+        certificates.forEach((c, i) => {
+            const card = document.createElement('div');
+            card.className = 'cert-card';
+            card.innerHTML = `
+                <svg class="cert-icon" style="animation-delay:${i * 0.2}s" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="8" r="6"/>
+                    <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+                </svg>
+                <h3>${c.title}</h3>
+                <p>${c.description}</p>
+            `;
+            certContainer.appendChild(card);
         });
     </script>
 </body>
