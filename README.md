@@ -1,12 +1,12 @@
 # Michael Sileshi Mekbib React Portfolio
 
-A portfolio implementation for public health informatics, digital health, analytics, and professional contributions.
+My portfolio brings together my work in public health informatics, digital health, analytics, and professional service.
 
 [View the published portfolio](https://michaelmekbib.github.io/portfolio/) · [Project hub and case studies](https://github.com/michaelmekbib/portfolio) · [LinkedIn](https://linkedin.com/in/michaelsileshi)
 
 ## Contents
 
-The portfolio includes sections for background, experience, projects, technical skills, publications, media, memberships, peer review, certificates, and contact details.
+I share my background, experience, projects, technical skills, publications, media coverage, professional memberships, peer review, and recognition.
 
 This repository contains the React implementation. The separate `portfolio` repository maintains the HTML portfolio and the project documentation hub.
 
@@ -46,7 +46,7 @@ Use the local address printed by Vite.
 
 ## Lovable workflow
 
-The project was created with Lovable. The original project remains available at [Lovable](https://lovable.dev/projects/eb175326-d4c4-4240-9ff1-8c4db3512835). Changes made through Lovable can synchronize with this repository; coordinate edits when using both workflows.
+I created the initial project with Lovable. The project is available at [Lovable](https://lovable.dev/projects/eb175326-d4c4-4240-9ff1-8c4db3512835). Changes made through Lovable can synchronize with this repository; coordinate edits when using both workflows.
 
 ## Contact
 
